@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // Hide the debug banner
       debugShowCheckedModeBanner: false,
-      title: 'Kindacode.com',
+      title: 'Meigen',
       home: HomeScreen(),
     );
   }
