@@ -42,12 +42,17 @@ class HomeScreen extends StatelessWidget {
                 mainAxisSpacing: 20),
             itemCount: meigen_category.length,
             itemBuilder: (BuildContext ctx, index) {
-              return Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    color: Colors.amber,
-                    borderRadius: BorderRadius.circular(15)),
-                child: Text(meigen_category[index]),
+              return GestureDetector(
+                onTap: () {
+                  
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Text(meigen_category[index]),
+                ),
               );
             }),
       ),
