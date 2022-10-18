@@ -1,6 +1,8 @@
 // kindacode.com
 // main.dart
 import 'package:flutter/material.dart';
+import 'detail_page.dart';
+import 'detail_page2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,13 +25,17 @@ class MyApp extends StatelessWidget {
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
 
-  final List meigen_category = ["人間関係", "名声"];
+  final List<Map<String, dynamic>> meigen_category = [
+    {"category": "人間関係", "nextpage": DetailPage()},
+    {"caotegory": "名声", "nextpage": DetailPage2()} 
+    
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Kindacode.com'),
+        title: const Text('Flutter Demo'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -41,17 +47,17 @@ class HomeScreen extends StatelessWidget {
                 crossAxisSpacing: 20,
                 mainAxisSpacing: 20),
             itemCount: meigen_category.length,
-            itemBuilder: (BuildContext ctx, index) {
+            itemBuilder: (BuildContext context, index) {
               return GestureDetector(
                 onTap: () {
-                  
+                   Navigator.push(context,MaterialPageRoute(builder: (context)=> meigen_category[index][0]));
                 },
                 child: Container(
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       color: Colors.amber,
                       borderRadius: BorderRadius.circular(15)),
-                  child: Text(meigen_category[index]),
+                  child: Text(meigen_category[index][1]),
                 ),
               );
             }),
