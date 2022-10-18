@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
 
   final List<Map<String, dynamic>> meigen_category = [
     {"category": "人間関係", "nextpage": DetailPage()},
-    {"caotegory": "名声", "nextpage": DetailPage2()} 
+    {"category": "名声", "nextpage": DetailPage2()} 
     
   ];
 
@@ -50,14 +50,14 @@ class HomeScreen extends StatelessWidget {
             itemBuilder: (BuildContext context, index) {
               return GestureDetector(
                 onTap: () {
-                   Navigator.push(context,MaterialPageRoute(builder: (context)=> meigen_category[index][0]));
+                   Navigator.push(context,MaterialPageRoute(builder: (context)=> meigen_category[index]['nextpage']));
                 },
                 child: Container(
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       color: Colors.amber,
                       borderRadius: BorderRadius.circular(15)),
-                  child: Text(meigen_category[index][1]),
+                  child: Text(meigen_category[index]['category']),
                 ),
               );
             }),
