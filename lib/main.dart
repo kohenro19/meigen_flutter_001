@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'detail_page.dart';
 import 'detail_page2.dart';
+import 'detail_page3.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +28,8 @@ class HomeScreen extends StatelessWidget {
 
   final List<Map<String, dynamic>> meigen_category = [
     {"category": "人間関係", "nextpage": DetailPage()},
-    {"category": "名声", "nextpage": DetailPage2()} 
+    {"category": "名声", "nextpage": DetailPage2()}, 
+    {"category": "夫婦", "nextpage": DetailPage3()} 
     
   ];
 

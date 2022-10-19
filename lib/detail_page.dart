@@ -2,12 +2,25 @@ import 'package:flutter/material.dart';
 
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({Key? key}) : super(key: key);
+  DetailPage({Key? key}) : super(key: key);
+
+  List<Color> colorList = [Colors.cyan, Colors.deepOrange, Colors.indigo];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('tt'),
+      appBar: AppBar(
+        title: const Text('Flutter Demo'),
+      ),
+ 
+      body: ListView.builder(
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            height: 80,
+            color: colorList[index % colorList.length],
+          );
+        },
+      )
     );
   }
 }
