@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'detail_page.dart';
 import 'detail_page2.dart';
 import 'detail_page3.dart';
-
+import 'note_card.dart';
 void main() {
   runApp(const MyApp());
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'note_card.dart';
 
 class DetailPage extends StatelessWidget {
   DetailPage({Key? key}) : super(key: key);
@@ -18,6 +18,10 @@ class DetailPage extends StatelessWidget {
           return Container(
             height: 80,
             color: colorList[index % colorList.length],
+            child: NoteCard(
+              title: "Happy wife",
+              author: "keita",
+            ),
           );
         },
       )
