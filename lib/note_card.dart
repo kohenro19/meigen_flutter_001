@@ -21,7 +21,8 @@ class _NoteCardState extends State<NoteCard> {
     var card = Center(
       child: Column(
         children: [
-          Text(widget.title)
+          Text(widget.title),
+          Text(widget.author)
         ],
       ),
     );
