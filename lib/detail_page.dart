@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'note_card.dart';
+import 'meigen.dart';
+import 'db_provider.dart';
 
 class DetailPage extends StatelessWidget {
   DetailPage({Key? key}) : super(key: key);
+
+  DBProvider dBProvider = DBProvider();
 
   List<Color> colorList = [Colors.cyan, Colors.deepOrange, Colors.indigo];
 
@@ -13,18 +16,33 @@ class DetailPage extends StatelessWidget {
         title: const Text('Flutter Demo'),
       ),
  
-      body: ListView.builder(
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            height: 80,
-            color: colorList[index % colorList.length],
-            child: NoteCard(
-              title: "Happy wife",
-              author: "keita",
-            ),
-          );
-        },
+      body: Center(
+        child: FutureBuilder<List>(
+          future: dBProvider.getMeigens(),
+          initialData: [],
+          builder: (BuildContext context, snapshot) {
+            var data = snapshot.data;
+            var datalength = data!.length;
+
+            return datalength == 0
+              ? const Center(
+                child: Text('no data found'),
+              )
+              : ListView.builder(
+                itemCount: datalength,
+                itemBuilder: (context, i) {
+                  return Dismissible(
+                    key: UniqueKey(),
+                    child: Icon(Icons.delete, color: Colors.white),
+                    onDismissed: (direction) {
+                      
+                    },
+                  );
+                },
+              );
+          }),
       )
+      
     );
   }
 }

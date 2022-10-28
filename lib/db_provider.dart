@@ -22,15 +22,15 @@ class DBProvider {
         id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
         meigen TEXT,
         author TEXT,
-        category TEXT
-     )
+        category TEXT);
       """);
     await database.execute("""
-        INSERT INTO table_name (meigen, author, category) VALUES ("happy wife", "keita", "marrige";
+        INSERT INTO meigen (meigen, author, category) VALUES ("happy wife", "keita", "marrige");
+        INSERT INTO meigen (meigen, author, category) VALUES ("happy wife", "keita", "human relationship");
       """);
   }
 
-  static Future<List<Map<String, dynamic>>> getMeigens() async {
+  Future<List<Map<String, dynamic>>> getMeigens() async {
     // dbをインスタンス化
     final db = await DBProvider.createDB();
     return db.query('meigen', orderBy: "id");

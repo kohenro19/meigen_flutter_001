@@ -5,6 +5,7 @@ import 'detail_page.dart';
 import 'detail_page2.dart';
 import 'detail_page3.dart';
 import 'note_card.dart';
+import 'db_provider.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -32,7 +33,8 @@ class HomeScreen extends StatelessWidget {
     {"category": "夫婦", "nextpage": DetailPage3()} 
     
   ];
-
+  
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
