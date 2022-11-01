@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'meigen.dart';
+import 'package:meigen/note_card.dart';
+import 'meigen_card.dart';
 import 'db_provider.dart';
 
 class DetailPage extends StatelessWidget {
@@ -31,14 +32,13 @@ class DetailPage extends StatelessWidget {
               : ListView.builder(
                 itemCount: datalength,
                 itemBuilder: (context, i) {
-                  return Dismissible(
-                    key: UniqueKey(),
-                    child: Icon(Icons.delete, color: Colors.white),
-                    onDismissed: (direction) {
-                      
-                    },
+                  var id = data[i].id;
+                  return NoteCard(
+                    id: data[i].id,
+                    title: data[i].meigen, 
+                    author:data[i].author
                   );
-                },
+                }
               );
           }),
       )

@@ -3,10 +3,12 @@
 import 'package:flutter/material.dart';
 
 class NoteCard extends StatefulWidget {
+  final int? id;
   final String title;
   final String author;
 
   const NoteCard({
+    this.id,
     required this.title,
     required this.author,
     Key? key}) : super(key: key);
@@ -21,6 +23,7 @@ class _NoteCardState extends State<NoteCard> {
     var card = Center(
       child: Column(
         children: [
+          // Text(widget.id),
           Text(widget.title),
           Text(widget.author)
         ],

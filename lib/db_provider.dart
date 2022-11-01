@@ -30,11 +30,20 @@ class DBProvider {
       """);
   }
 
-  Future<List<Map<String, dynamic>>> getMeigens() async {
+  Future<List<Meigen>> getMeigens() async {
     // dbをインスタンス化
     final db = await DBProvider.createDB();
-    return db.query('meigen', orderBy: "id");
-  }
+    List<Map<String, dynamic>> items = await db.query('meigen', orderBy: "id");
+  
+    return List.generate(
+      items.length,
+      (i) => Meigen(
+        id: items[i]['id'],
+        meigen: items[i]['meigen'],
+        author: items[i]['author'],
+// convert from String type into DateTime type
+      ),
 
- 
+    );
+  }
 }
