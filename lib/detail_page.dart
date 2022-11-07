@@ -31,7 +31,7 @@ class DetailPage extends StatelessWidget {
               )
               : ListView.builder(
                 itemCount: datalength,
-                itemBuilder: (context, i) {
+                itemBuilder: (context, i) { 
                   var id = data[i].id;
                   return NoteCard(
                     id: data[i].id,

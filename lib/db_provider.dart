@@ -11,6 +11,7 @@ class DBProvider {
       'meigen.db',
       version: 1,
       onCreate: (sql.Database database, int version) async {
+
         await createTables(database);
       },
     );
@@ -25,8 +26,8 @@ class DBProvider {
         category TEXT);
       """);
     await database.execute("""
-        INSERT INTO meigen (meigen, author, category) VALUES ("happy wife", "keita", "marrige");
-        INSERT INTO meigen (meigen, author, category) VALUES ("happy wife", "keita", "human relationship");
+        INSERT INTO meigen VALUES ("happy wife2", "keita2", "marrige2");
+        INSERT INTO meigen VALUES ("happy wife", "keita", "human relationship");
       """);
   }
 
@@ -41,7 +42,6 @@ class DBProvider {
         id: items[i]['id'],
         meigen: items[i]['meigen'],
         author: items[i]['author'],
-// convert from String type into DateTime type
       ),
 
     );
