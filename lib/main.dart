@@ -63,10 +63,25 @@ class HomeScreen extends StatelessWidget {
                 //   decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
                 //   child: Image.asset(meigen_category[index]['category'])
                 // )
-                child: ClipRRect(
-                    child: Image.asset('images/life.png',),
-                    borderRadius: BorderRadius.all(Radius.circular(30)),   
-                )
+                // child: ClipRRect(
+                //     child: Image.asset('images/life.jpg'),
+                //     borderRadius: BorderRadius.circular(20),
+          
+                // )
+                  child: Container(
+                    width: 200,
+                    margin: EdgeInsets.all(10),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image(
+                        image: AssetImage('images/life.jpg'),
+                          width: 200,
+                          height: 100,
+                          fit: BoxFit.fill,
+                        // image: NetworkImage('https://www.tutorialkart.com/img/hummingbird.png'),
+                      ),
+                    )
+                  )
               );
             }),
       ),
