@@ -70,16 +70,34 @@ class HomeScreen extends StatelessWidget {
                 // )
                   child: Container(
                     width: 200,
-                    margin: EdgeInsets.all(10),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Image(
-                        image: AssetImage('images/life.jpg'),
-                          width: 200,
-                          height: 100,
-                          fit: BoxFit.fill,
-                        // image: NetworkImage('https://www.tutorialkart.com/img/hummingbird.png'),
-                      ),
+                    // marginは外側の余白を指定することができるプロパティ
+                    // EdgeInsets.all(数値): 全方向の余白
+                    // margin: EdgeInsets.all(10),
+                    child: Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image(
+                            image: AssetImage('images/life.jpg'),
+                              width: 400,
+                              height: 400,
+                              fit: BoxFit.fill,
+                            // image: NetworkImage('https://www.tutorialkart.com/img/hummingbird.png'),
+                          ),
+                        ),
+                      Center(
+                        child: Container(
+                          // margin: EdgeInsets.all(50),
+                          child: Text("人生の名言",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20.0,
+                            ),
+                          ),
+                        ),
+                      )
+                      ]
                     )
                   )
               );
