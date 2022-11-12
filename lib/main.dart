@@ -28,9 +28,9 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
 
   final List<Map<String, dynamic>> meigen_category = [
-    {"category": "人間関係", "nextpage": DetailPage()},
-    {"category": "名声", "nextpage": DetailPage2()}, 
-    {"category": "夫婦", "nextpage": DetailPage3()} 
+    {"category": "images/life.png", "nextpage": DetailPage()},
+    // {"category": "名声", "nextpage": DetailPage2()}, 
+    // {"category": "夫婦", "nextpage": DetailPage3()} 
     
   ];
   
@@ -56,13 +56,17 @@ class HomeScreen extends StatelessWidget {
                 onTap: () {
                    Navigator.push(context,MaterialPageRoute(builder: (context)=> meigen_category[index]['nextpage']));
                 },
-                child: Container(
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.circular(15)),
-                  child: Text(meigen_category[index]['category']),
-                ),
+                // child: Container(
+                //   // padding: EdgeInsets.all(kDefaultPadding),
+                //   height: 180,
+                //   width: 160,
+                //   decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
+                //   child: Image.asset(meigen_category[index]['category'])
+                // )
+                child: ClipRRect(
+                    child: Image.asset('images/life.png',),
+                    borderRadius: BorderRadius.all(Radius.circular(30)),   
+                )
               );
             }),
       ),

@@ -26,8 +26,8 @@ class DBProvider {
         category TEXT);
       """);
     await database.execute("""
-        INSERT INTO meigen VALUES ("happy wife2", "keita2", "marrige2");
-        INSERT INTO meigen VALUES ("happy wife", "keita", "human relationship");
+        INSERT INTO meigen(meigen, author, category) VALUES ("happy wife2", "keita2", "marrige2");
+        INSERT INTO meigen(meigen, author, category)  VALUES ("happy wife", "keita", "human relationship");
       """);
   }
 
