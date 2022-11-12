@@ -56,18 +56,6 @@ class HomeScreen extends StatelessWidget {
                 onTap: () {
                    Navigator.push(context,MaterialPageRoute(builder: (context)=> meigen_category[index]['nextpage']));
                 },
-                // child: Container(
-                //   // padding: EdgeInsets.all(kDefaultPadding),
-                //   height: 180,
-                //   width: 160,
-                //   decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
-                //   child: Image.asset(meigen_category[index]['category'])
-                // )
-                // child: ClipRRect(
-                //     child: Image.asset('images/life.jpg'),
-                //     borderRadius: BorderRadius.circular(20),
-          
-                // )
                   child: Container(
                     width: 200,
                     // marginは外側の余白を指定することができるプロパティ
