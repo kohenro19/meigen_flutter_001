@@ -66,6 +66,7 @@ class HomeScreen extends StatelessWidget {
                     // marginは外側の余白を指定することができるプロパティ
                     // EdgeInsets.all(数値): 全方向の余白
                     // margin: EdgeInsets.all(10),
+                    // Stack: 複数のwidgetを重ねる
                     child: Stack(
                       children: [
                         ClipRRect(
@@ -74,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                             image: AssetImage(meigen_category[index]['image']),
                               width: 400,
                               height: 400,
-                              fit: BoxFit.fill,
+                              fit: BoxFit.fill, // fit: BoxFit.fillによって、画像の角を丸くする
                           ),
                         ),
                       Center(
