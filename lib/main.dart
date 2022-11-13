@@ -1,9 +1,6 @@
-// kindacode.com
-// main.dart
 import 'package:flutter/material.dart';
-import 'detail_page.dart';
-import 'detail_page2.dart';
-import 'detail_page3.dart';
+import 'positivity_page.dart';
+import 'motivation_page.dart';
 import 'note_card.dart';
 import 'db_provider.dart';
 void main() {
@@ -28,9 +25,8 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
 
   final List<Map<String, dynamic>> meigen_category = [
-    {"category": "images/life.png", "nextpage": DetailPage()},
-    // {"category": "名声", "nextpage": DetailPage2()}, 
-    // {"category": "夫婦", "nextpage": DetailPage3()} 
+    {"image": "images/positivity.jpg", "title": "前向きにになれる\n名言", "nextpage": positivity_page()},
+    {"image": "images/challenge.png", "title": "モチベーションを\n上げる名言", "nextpage": motivation_page()}, 
     
   ];
   
@@ -66,7 +62,7 @@ class HomeScreen extends StatelessWidget {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(20),
                           child: Image(
-                            image: AssetImage('images/life.jpg'),
+                            image: AssetImage(meigen_category[index]['image']),
                               width: 400,
                               height: 400,
                               fit: BoxFit.fill,
@@ -76,11 +72,13 @@ class HomeScreen extends StatelessWidget {
                       Center(
                         child: Container(
                           // margin: EdgeInsets.all(50),
-                          child: Text("人生の名言",
+                          child: Text(meigen_category[index]['title'],
+                            textAlign:TextAlign.center,
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 20.0,
+                              
                             ),
                           ),
                         ),

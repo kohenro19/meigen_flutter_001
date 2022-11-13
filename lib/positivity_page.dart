@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:meigen/note_card.dart';
 
 
-class DetailPage extends StatelessWidget {
-  DetailPage({Key? key}) : super(key: key);
+class positivity_page extends StatelessWidget {
+  positivity_page({Key? key}) : super(key: key);
 
 
 Map meigens = {
