@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:meigen/note_card.dart';
 
 
-class positivity_page extends StatelessWidget {
-  positivity_page({Key? key}) : super(key: key);
+class success_page extends StatelessWidget {
+  success_page({Key? key}) : super(key: key);
 
 
 Map meigens = {
-    0: {'meigen': '人生は、大いなる戦場である。', 'person': '島崎藤村'},
-    1: {'meigen': '歩け、歩け。続ける事の大切さ', 'person': '伊能忠敬'},
+     0: {'meigen': '歩け、歩け。続ける事の大切さ', 'person': '伊能忠敬'},
+     1: {'meigen': '何であれ素晴らしいものは突如として生じるものではない。ブドウの1房、イチジクの実1つとて同じである。君がイチジクの実が欲しいというなら、私は時間が必要だと答えよう。花が咲き、実がつき、それが熟すのを待たねばならない。', 'person': 'エピクトス（奴隷出身哲学者）'},
   };
   
   @override

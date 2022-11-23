@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 
-class motivation_page extends StatelessWidget {
-  const motivation_page({Key? key}) : super(key: key);
+class happiness_page extends StatelessWidget {
+  const happiness_page({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

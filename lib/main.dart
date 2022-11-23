@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'positivity_page.dart';
-import 'motivation_page.dart';
+import 'success_page.dart';
+import 'happiness_page.dart';
 import 'love_page.dart';
 import 'note_card.dart';
 import 'db_provider.dart';
@@ -31,9 +31,9 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
 
   final List<Map<String, dynamic>> meigen_category = [
-    {"image": "images/positivity.jpg", "title": "前向きにになれる\n名言", "nextpage": positivity_page()},
-    {"image": "images/challenge.png", "title": "モチベーションを\n上げる名言", "nextpage": motivation_page()}, 
-    {"image": "images/love.jpg", "title": "恋愛・結婚の\n名言", "nextpage": love_page()}, 
+    {"image": "images/happiness.jpg", "title": "幸福を引き寄せる\nマインドセット", "nextpage": happiness_page()},
+    {"image": "images/success.png", "title": "成功を掴むルール", "nextpage": success_page()}, 
+    {"image": "images/love.jpg", "title": "夫婦円満の秘訣", "nextpage": love_page()}, 
   ];
   
   @override
@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
         // implement GridView.builder
         child: GridView.builder(
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 200,
+                maxCrossAxisExtent: 400, // 2列するには、200にする
                 childAspectRatio: 3 / 2,
                 crossAxisSpacing: 20,
                 mainAxisSpacing: 20),
@@ -85,7 +85,7 @@ class HomeScreen extends StatelessWidget {
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: 20.0,
+                              fontSize: 35.0,
                               
                             ),
                           ),
