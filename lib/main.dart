@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // Hide the debug banner
       debugShowCheckedModeBanner: false,
-      title: 'Meigen',
+      title: 'Word Power',
       theme: ThemeData(
         primarySwatch: Colors.lime,
       ),

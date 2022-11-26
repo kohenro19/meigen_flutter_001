@@ -13,7 +13,15 @@ Map meigens = {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('人生の名言'),
+        centerTitle: true,
+        leading: GestureDetector( // leadingは、戻りの矢印
+          onTap: () {Navigator.pop(context);}, // 前のページに戻るときはpopを使う
+          child: Icon(Icons.arrow_back, color: Colors.white)
+          
+        ),
+        title: const Text('夫婦円満の秘訣',
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        )
       ),
       body: Center(
         child: ListView.builder(
