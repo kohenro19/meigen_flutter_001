@@ -7,6 +7,9 @@ class love_page extends StatelessWidget {
 
 Map meigens = {
     0: {'meigen': '人類は太古の昔から、帰りが遅いと心配してくれる人を必要としている。', 'person': 'マーガレット・ミード(米国の文化人類学者)'},
+    1: {'meigen': '夫婦の仲というものは、あまりに始終いっしょにいると、かえって冷却するものである。', 'person': 'モンテーニュ(フランスの思想家)'},
+
+
   };
   
   @override
@@ -19,7 +22,7 @@ Map meigens = {
           child: Icon(Icons.arrow_back, color: Colors.white)
           
         ),
-        title: const Text('夫婦円満の秘訣',
+        title: const Text('夫婦円満のヒント',
         style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         )
       ),

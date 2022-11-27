@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:meigen/note_card.dart';
 
 
 class happiness_page extends StatelessWidget {
@@ -36,6 +35,9 @@ Map meigens = {
           itemCount: meigens.length,
           itemBuilder: (BuildContext context, int index) {
             return Container(
+              margin: EdgeInsets.only(
+                bottom: 20  // 行間を広げる
+              ),
               child: ListTile(
               // selected: true,
               title: Text(meigens[index]['meigen']), // 名言

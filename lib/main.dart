@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
   final List<Map<String, dynamic>> meigen_category = [
     {"image": "images/happiness.jpg", "title": "幸福を引き寄せる\nマインドセット", "nextpage": happiness_page()},
     {"image": "images/success.png", "title": "成功を掴むルール", "nextpage": success_page()}, 
-    {"image": "images/love.jpg", "title": "夫婦円満の秘訣", "nextpage": love_page()}, 
+    {"image": "images/love.jpg", "title": "夫婦円満のヒント", "nextpage": love_page()}, 
   ];
   
   @override
