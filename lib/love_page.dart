@@ -31,6 +31,9 @@ Map meigens = {
           itemCount: meigens.length,
           itemBuilder: (BuildContext context, int index) {
             return Container(
+              margin: EdgeInsets.only(
+                bottom: 20  // 行間を広げる
+              ),
               child: ListTile(
               title: Text(meigens[index]['meigen']), // 名言
               subtitle: Text(meigens[index]["person"]), // 人物

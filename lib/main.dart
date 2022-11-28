@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'success_page.dart';
 import 'happiness_page.dart';
 import 'love_page.dart';
-import 'note_card.dart';
-import 'db_provider.dart';
+
 void main() {
   runApp(const MyApp());
 }
