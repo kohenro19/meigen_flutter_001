@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'success_page.dart';
 import 'happiness_page.dart';
@@ -32,7 +30,7 @@ class HomeScreen extends StatelessWidget {
   final List<Map<String, dynamic>> meigen_category = [
     {"image": "images/happiness.jpg", "title": "幸福を引き寄せる\nマインドセット", "nextpage": happiness_page()},
     {"image": "images/success.png", "title": "成功を掴むルール", "nextpage": success_page()}, 
-    {"image": "images/love.jpg", "title": "夫婦円満のヒント", "nextpage": love_page()}, 
+    {"image": "images/love.jpg", "title": "男女関係の悩みに効く\nコトバ", "nextpage": love_page()}, 
   ];
   
   @override
@@ -40,8 +38,12 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true, // タイトルを中央揃えにする
-        title: const Text('Word Power',
-          style: TextStyle(color: Colors.white)
+        title: const Text('名言セラピー',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 24,
+            fontWeight: FontWeight.bold
+          )
         ),
         elevation:2 // 境界線に影を付ける
       ),
