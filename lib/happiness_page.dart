@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'models/favorites.dart';
+// import 'screens/favorites.dart';
 
 
 class happiness_page extends StatelessWidget {
@@ -27,7 +29,7 @@ Map meigens = {
         ),
         title: const Text('幸福を引き寄せるマインドセット',
         style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        )
+        ),
       ),
  
       body: Center(

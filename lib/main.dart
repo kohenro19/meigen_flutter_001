@@ -45,6 +45,16 @@ class HomeScreen extends StatelessWidget {
             fontWeight: FontWeight.bold
           )
         ),
+         actions: <Widget>[
+          TextButton.icon(
+            style: TextButton.styleFrom(primary: Colors.white),
+            onPressed: () {
+              // Navigator.pushNamed(context, FavoritesPage.routeName);
+            },
+            icon: Icon(Icons.favorite_border),
+            label: Text('Favorites'),
+          ),
+        ],
         elevation:2 // 境界線に影を付ける
       ),
       body: Padding(
