@@ -14,14 +14,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // Hide the debug banner
-      debugShowCheckedModeBanner: false,
-      title: 'Word Power',
-      theme: ThemeData(
-        primarySwatch: Colors.lime,
+    return ChangeNotifierProvider<Favorites>(
+      create: (context) => Favorites(),
+      child: MaterialApp(
+        // Hide the debug banner
+        debugShowCheckedModeBanner: false,
+        title: 'Word Power',
+        theme: ThemeData(
+          primarySwatch: Colors.lime,
+        ),
+        home: HomeScreen(),
       ),
-      home: HomeScreen(),
     );
   }
 }
@@ -70,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                 mainAxisSpacing: 20
             ),
             itemCount: meigen_category.length,
-            itemBuilder: (BuildContext context, index)  => ItemTile(index),
+            itemBuilder: (BuildContext context, index)  => ItemTile(index, meigen_category[index]['title']),
             // itemBuilder: (BuildContext context, index) {
             //   return GestureDetector(
             //     onTap: () {
@@ -119,9 +122,11 @@ class HomeScreen extends StatelessWidget {
 
 class ItemTile extends StatelessWidget {
   final int itemNo;
+  final String message;
 
   const ItemTile(
     this.itemNo,
+    this.message
   );
 
   @override
@@ -136,7 +141,7 @@ class ItemTile extends StatelessWidget {
           backgroundColor: Colors.primaries[itemNo % Colors.primaries.length],
         ),
         title: Text(
-          'Item $itemNo',
+          'Item $itemNo $message',
           key: Key('text_$itemNo'),
         ),
         trailing: IconButton(
