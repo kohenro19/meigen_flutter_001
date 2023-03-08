@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'models/favorites.dart';
 import 'success_page.dart';
 import 'happiness_page.dart';
 import 'love_page.dart';
@@ -65,48 +67,97 @@ class HomeScreen extends StatelessWidget {
                 maxCrossAxisExtent: 400, // 2列するには、200にする
                 childAspectRatio: 3 / 2,
                 crossAxisSpacing: 20,
-                mainAxisSpacing: 20),
+                mainAxisSpacing: 20
+            ),
             itemCount: meigen_category.length,
-            itemBuilder: (BuildContext context, index) {
-              return GestureDetector(
-                onTap: () {
-                   Navigator.push(context,MaterialPageRoute(builder: (context)=> meigen_category[index]['nextpage']));
-                },
-                  child: Container(
-                    width: 200,
-                    // marginは外側の余白を指定することができるプロパティ
-                    // EdgeInsets.all(数値): 全方向の余白
-                    // margin: EdgeInsets.all(10),
-                    // Stack: 複数のwidgetを重ねる
-                    child: Stack(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Image(
-                            image: AssetImage(meigen_category[index]['image']),
-                              width: 400,
-                              height: 400,
-                              fit: BoxFit.fill, // fit: BoxFit.fillによって、画像の角を丸くする
-                          ),
-                        ),
-                      Center(
-                        child: Container(
-                          child: Text(meigen_category[index]['title'],
-                            textAlign:TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 35.0,
+            itemBuilder: (BuildContext context, index)  => ItemTile(index),
+            // itemBuilder: (BuildContext context, index) {
+            //   return GestureDetector(
+            //     onTap: () {
+            //        Navigator.push(context,MaterialPageRoute(builder: (context)=> meigen_category[index]['nextpage']));
+            //     },
+            //       child: Container(
+            //         width: 200,
+            //         // marginは外側の余白を指定することができるプロパティ
+            //         // EdgeInsets.all(数値): 全方向の余白
+            //         // margin: EdgeInsets.all(10),
+            //         // Stack: 複数のwidgetを重ねる
+            //         child: Stack(
+            //           children: [
+            //             ClipRRect(
+            //               borderRadius: BorderRadius.circular(20),
+            //               child: Image(
+            //                 image: AssetImage(meigen_category[index]['image']),
+            //                   width: 400,
+            //                   height: 400,
+            //                   fit: BoxFit.fill, // fit: BoxFit.fillによって、画像の角を丸くする
+            //               ),
+            //             ),
+            //           Center(
+            //             child: Container(
+            //               child: Text(meigen_category[index]['title'],
+            //                 textAlign:TextAlign.center,
+            //                 style: TextStyle(
+            //                   color: Colors.white,
+            //                   fontWeight: FontWeight.bold,
+            //                   fontSize: 35.0,
                               
-                            ),
-                          ),
-                        ),
-                      )
-                      ]
-                    )
-                  )
-              );
-            }),
+            //                 ),
+            //               ),
+            //             ),
+            //           )
+            //           ]
+            //         )
+                  // )
+              // );
+            // }),
+        )
+      ),
+    );
+  }
+}
+
+class ItemTile extends StatelessWidget {
+  final int itemNo;
+
+  const ItemTile(
+    this.itemNo,
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    // Provider.of<Favorites>(context) で親Widgetからデータを受け取る
+    var favoritesList = Provider.of<Favorites>(context);
+
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ListTile(
+        leading: CircleAvatar(
+          backgroundColor: Colors.primaries[itemNo % Colors.primaries.length],
+        ),
+        title: Text(
+          'Item $itemNo',
+          key: Key('text_$itemNo'),
+        ),
+        trailing: IconButton(
+          key: Key('icon_$itemNo'),
+          icon: favoritesList.items.contains(itemNo)
+              ? Icon(Icons.favorite)
+              : Icon(Icons.favorite_border),
+          onPressed: () {
+            !favoritesList.items.contains(itemNo)
+                ? favoritesList.add(itemNo)
+                : favoritesList.remove(itemNo);
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(favoritesList.items.contains(itemNo)
+                    ? 'Added to favorites.'
+                    : 'Removed from favorites.'),
+                duration: Duration(seconds: 1),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
