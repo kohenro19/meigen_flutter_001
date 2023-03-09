@@ -73,49 +73,49 @@ class HomeScreen extends StatelessWidget {
                 mainAxisSpacing: 20
             ),
             itemCount: meigen_category.length,
-            itemBuilder: (BuildContext context, index)  => ItemTile(index, meigen_category[index]['title']),
-            // itemBuilder: (BuildContext context, index) {
-            //   return GestureDetector(
-            //     onTap: () {
-            //        Navigator.push(context,MaterialPageRoute(builder: (context)=> meigen_category[index]['nextpage']));
-            //     },
-            //       child: Container(
-            //         width: 200,
-            //         // marginは外側の余白を指定することができるプロパティ
-            //         // EdgeInsets.all(数値): 全方向の余白
-            //         // margin: EdgeInsets.all(10),
-            //         // Stack: 複数のwidgetを重ねる
-            //         child: Stack(
-            //           children: [
-            //             ClipRRect(
-            //               borderRadius: BorderRadius.circular(20),
-            //               child: Image(
-            //                 image: AssetImage(meigen_category[index]['image']),
-            //                   width: 400,
-            //                   height: 400,
-            //                   fit: BoxFit.fill, // fit: BoxFit.fillによって、画像の角を丸くする
-            //               ),
-            //             ),
-            //           Center(
-            //             child: Container(
-            //               child: Text(meigen_category[index]['title'],
-            //                 textAlign:TextAlign.center,
-            //                 style: TextStyle(
-            //                   color: Colors.white,
-            //                   fontWeight: FontWeight.bold,
-            //                   fontSize: 35.0,
+            // itemBuilder: (BuildContext context, index)  => ItemTile(index, meigen_category[index]['title']),
+            itemBuilder: (BuildContext context, index) {
+              return GestureDetector(
+                onTap: () {
+                   Navigator.push(context,MaterialPageRoute(builder: (context)=> meigen_category[index]['nextpage']));
+                },
+                  child: Container(
+                    width: 200,
+                    // marginは外側の余白を指定することができるプロパティ
+                    // EdgeInsets.all(数値): 全方向の余白
+                    // margin: EdgeInsets.all(10),
+                    // Stack: 複数のwidgetを重ねる
+                    child: Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image(
+                            image: AssetImage(meigen_category[index]['image']),
+                              width: 400,
+                              height: 400,
+                              fit: BoxFit.fill, // fit: BoxFit.fillによって、画像の角を丸くする
+                          ),
+                        ),
+                      Center(
+                        child: Container(
+                          child: Text(meigen_category[index]['title'],
+                            textAlign:TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 35.0,
                               
-            //                 ),
-            //               ),
-            //             ),
-            //           )
-            //           ]
-            //         )
-                  // )
-              // );
-            // }),
+                            ),
+                          ),
+                        ),
+                      )
+                      ]
+                    )
+                  )
+              );
+            }),
         )
-      ),
+      // ),
     );
   }
 }
