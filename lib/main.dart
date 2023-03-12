@@ -58,14 +58,38 @@ class HomeScreen extends StatelessWidget {
           )
         ),
          actions: <Widget>[
-          TextButton.icon(
-            style: TextButton.styleFrom(primary: Colors.white),
-            onPressed: () {
-              Navigator.pushNamed(context, FavoritesPage.routeName);
-            },
-            icon: Icon(Icons.favorite_border),
-            label: Text('Favorites'),
-          ),
+          // TextButton.icon(
+          //    onPressed: () {
+          //     Navigator.pushNamed(context, FavoritesPage.routeName);
+          //   },
+          //   icon: Icon(Icons.favorite_border), 
+          //   label: Text('Favorites'),
+          //   style: TextButton.styleFrom(primary: Colors.white),
+
+          //   // icon: Icon(Icons.favorite_border),
+          //   // label: Text('Favorites'),
+          // ),
+          SizedBox.fromSize(
+  size: Size(56, 56),
+  child: ClipOval(
+    child: Material(
+      color: Colors.amberAccent,
+      child: InkWell(
+        splashColor: Colors.green, 
+        onTap: () {
+          Navigator.pushNamed(context, FavoritesPage.routeName);
+        }, 
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(Icons.favorite_border), // <-- Icon
+            Text("favorite"), // <-- Text
+          ],
+        ),
+      ),
+    ),
+  ),
+)
         ],
         elevation:2 // 境界線に影を付ける
       ),

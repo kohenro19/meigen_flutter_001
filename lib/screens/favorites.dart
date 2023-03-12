@@ -11,6 +11,12 @@ class FavoritesPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Favorites'),
       ),
+      // Consumer: notifyされた際、再ビルドの対象を絞るためのWidget
+      // お気に入りリストのデータを提供し、そのデータが変更された場合にビルドを再実行するようにします。
+      // この場合、お気に入りリストはFavoritesモデルのインスタンスです。
+      // BuildContext context：現在のウィジェットのビルドコンテキストを表します。
+      // context: 現在のウィジェットのビルドコンテキストを表す
+      // value: Providerから提供されたデータ。この場合、Favoritesモデルのインスタンス
       body: Consumer<Favorites>(
         builder: (context, value, child) => ListView.builder(
           itemCount: value.items.length,
