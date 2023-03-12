@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'models/favorites.dart';
+import 'screens/favorites.dart';
 import 'success_page.dart';
 import 'happiness_page.dart';
 import 'love_page.dart';
@@ -23,7 +24,12 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.lime,
         ),
-        home: HomeScreen(),
+        // home: HomeScreen(),
+        routes: {
+          HomeScreen.routeName: (context) =>  HomeScreen(),
+          FavoritesPage.routeName: (context) =>  FavoritesPage(),
+        },
+        initialRoute: HomeScreen.routeName,
       ),
     );
   }
@@ -32,6 +38,7 @@ class MyApp extends StatelessWidget {
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
 
+  static String routeName = '/';
   final List<Map<String, dynamic>> meigen_category = [
     {"image": "images/happiness.jpg", "title": "幸福を引き寄せる\nマインドセット", "nextpage": happiness_page()},
     {"image": "images/success.png", "title": "成功を掴むルール", "nextpage": success_page()}, 
@@ -54,7 +61,7 @@ class HomeScreen extends StatelessWidget {
           TextButton.icon(
             style: TextButton.styleFrom(primary: Colors.white),
             onPressed: () {
-              // Navigator.pushNamed(context, FavoritesPage.routeName);
+              Navigator.pushNamed(context, FavoritesPage.routeName);
             },
             icon: Icon(Icons.favorite_border),
             label: Text('Favorites'),
