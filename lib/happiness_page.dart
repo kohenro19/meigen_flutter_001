@@ -36,7 +36,7 @@ Map meigens = {
       body: Center(
         child: ListView.builder(
           itemCount: meigens.length,
-          itemBuilder: (BuildContext context, index)  => ItemTile(index, meigens[index]['meigen']),
+          itemBuilder: (BuildContext context, index)  => ItemTile(index, meigens[index]['meigen'], meigens[index]['person']),
  
       //     itemBuilder: (BuildContext context, int index) {
       //       return Container(

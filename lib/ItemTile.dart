@@ -5,10 +5,12 @@ import 'models/favorites.dart';
 class ItemTile extends StatelessWidget {
   final int itemNo;
   final String meigen;
+  final String person;
 
   const ItemTile(
     this.itemNo,
-    this.meigen
+    this.meigen,
+    this.person
   );
 
   @override
@@ -19,13 +21,14 @@ class ItemTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: ListTile(
-        leading: CircleAvatar(
-          backgroundColor: Colors.primaries[itemNo % Colors.primaries.length],
-        ),
+        // leading: CircleAvatar(
+        //   backgroundColor: Colors.primaries[itemNo % Colors.primaries.length],
+        // ),
         title: Text(
-          'Item $itemNo $meigen',
+          '$meigen',
           key: Key('text_$itemNo'),
         ),
+        subtitle: Text('$person'),
         trailing: IconButton(
           key: Key('icon_$itemNo'),
           icon: favoritesList.items.contains(itemNo)

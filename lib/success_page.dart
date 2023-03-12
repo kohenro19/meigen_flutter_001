@@ -41,7 +41,7 @@ Map meigens = {
           // itemBuilder: (BuildContext context, index)  => ItemTile(index, meigens[index]['meigen']),
            itemBuilder: (BuildContext context, index)  {
             index = index + 50;
-            return ItemTile(index, meigens[index]['meigen']);
+            return ItemTile(index, meigens[index]['meigen'], meigens[index]['person']);
            } 
       )
       
