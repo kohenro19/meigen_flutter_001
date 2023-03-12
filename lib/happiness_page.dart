@@ -70,8 +70,8 @@ class ItemTile extends StatelessWidget {
   Widget build(BuildContext context) {
     // Provider.of<Favorites>(context) で親Widgetからデータを受け取る
     var favoritesList = Provider.of<Favorites>(context);
-
-    return Padding(
+  
+      return Padding(
       padding: const EdgeInsets.all(8.0),
       child: ListTile(
         leading: CircleAvatar(
